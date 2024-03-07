@@ -1,6 +1,6 @@
 # cleanproject
 
-A new Flutter project.
+A Flutter project to demonstrate clean-code implementation.
 
 ## Getting Started
 
