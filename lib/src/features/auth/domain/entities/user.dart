@@ -25,7 +25,7 @@ class User extends Equatable {
       required this.photoUrl});
 
   @override
-  List<Object> get props => [name, email, bio];
+  List<Object> get props => [name, email, bio, photoUrl];
 }
 
 /// Represents an empty [User]

@@ -32,7 +32,8 @@ class FakeAPI {
         return user;
       }
     }
-    throw Exception("No User Found, please double check your email");
+    throw Exception(
+        "No User Found, please double check your email or password");
   }
 
   void logoutUser() {}
