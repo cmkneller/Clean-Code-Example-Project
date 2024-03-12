@@ -1,0 +1,1 @@
+ /Users/christopherkneller/Documents/GitHub/clean-code-example/Clean-Code-Example-Project/.dart_tool/flutter_build/e676fef376897e02750bd18133527a6d/native_assets.yaml: 

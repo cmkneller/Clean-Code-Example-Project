@@ -16,6 +16,7 @@ abstract class Validator<String> {
   ValidationResult validate(String value);
 }
 
+/// Class to represent a result from a field validation
 class ValidationResult {
   bool isValid;
   String message;

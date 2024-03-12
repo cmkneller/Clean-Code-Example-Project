@@ -18,5 +18,6 @@ abstract class AuthDataSource {
   Future<UserModel> loginUser(
       {required String email, required String password});
 
+  /// Logs a user out
   Future<void> logoutUser();
 }

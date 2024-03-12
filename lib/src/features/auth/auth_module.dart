@@ -7,6 +7,7 @@
 /// [Date] March 5, 2024
 library;
 
+import 'package:clean_code_example_project/src/core/utility/module.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../config/locator.dart';
@@ -19,30 +20,26 @@ import 'domain/usecases/login_user_usecase.dart';
 import 'domain/usecases/logout_user_usecase.dart';
 import 'presentation/bloc/login/login_bloc.dart';
 
-extension AuthModule on GetIt {
-  /// Inits API
-  void initAuthApis() {
+class AuthModule implements Module {
+  @override
+  void registerDataSources() {
     getIt.registerLazySingleton<FakeAPI>(() => FakeAPI());
-  }
-
-  /// Inits Data source
-  void initAuthDataSources() {
     getIt.registerLazySingleton<AuthDataSource>(() => ImplAuthDataSource());
   }
 
-  /// Inits Repos
-  void initAuthRepos() {
+  @override
+  void registerRepositories() {
     getIt.registerLazySingleton<AuthRepository>(() => ImplAuthRepository());
   }
 
-  /// Inits Usecases
-  void initAuthUsecases() {
+  @override
+  void registerUsecases() {
     getIt.registerLazySingleton<LogInUserUsecase>(() => LogInUserUsecase());
     getIt.registerLazySingleton<LogOutUserUsecase>(() => LogOutUserUsecase());
   }
 
-  /// Inits Blocs
-  void initAuthBlocs() {
+  @override
+  void registerBlocs() {
     getIt.registerLazySingleton<LoginBloc>(() => LoginBloc());
   }
 }

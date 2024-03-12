@@ -3,7 +3,6 @@
 /// Holds an email validator class
 ///
 /// [Author] Chris Kneller
-/// [support] chris@swiftpitch.app
 /// [Date] August 24, 2023
 library;
 

@@ -3,7 +3,6 @@
 /// This file holds an implemented [AuthRepository] class
 ///
 /// [Author] Chris Kneller
-/// [support] chris@swiftpitch.app
 /// [Date] March 5, 2024
 library;
 

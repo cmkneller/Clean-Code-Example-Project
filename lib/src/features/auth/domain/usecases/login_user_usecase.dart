@@ -4,7 +4,6 @@
 /// used when the user signs in using an email and password
 ///
 /// [Author] Chris Kneller
-/// [support] chris@swiftpitch.app
 /// [Date] March 5, 2024
 
 import 'package:dartz/dartz.dart';

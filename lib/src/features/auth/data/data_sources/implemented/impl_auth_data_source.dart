@@ -29,6 +29,7 @@ class ImplAuthDataSource implements AuthDataSource {
     return UserModel.fromJson(userData);
   }
 
+  /// Logs the current user out
   @override
   Future<void> logoutUser() async {
     api.logoutUser();

@@ -6,49 +6,47 @@
 /// [Author] Chris Kneller
 /// [Date] March 5, 2024
 
-import 'package:clean_code_example_project/src/features/auth/auth_module.dart';
-import 'package:clean_code_example_project/src/features/error/error_module.dart';
-import 'package:clean_code_example_project/src/features/home/home_module.dart';
+import 'package:clean_code_example_project/src/core/utility/module.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 
 class Locator {
-  void initDependancies() {
-    initApis();
-    initDataSources();
-    initRepositories();
-    initUsecases();
-    initBlocs();
+  final List<Module> moduleList;
+
+  Locator({required this.moduleList}) {
+    initDependancies();
     getIt.allowReassignment = true;
   }
 
-  /// Inits all api classes
-  void initApis() {
-    getIt.initAuthApis();
+  /// Inits dependancies on all of the application layers
+  void initDependancies() {
+    initDataLayer();
+    initDomainLayer();
+    initPresentationLayer();
   }
 
-  /// Inits all data source classes
-  void initDataSources() {
-    getIt.initAuthDataSources();
+  /// Loops through the [moduleList] and registers data layer classes
+  void initDataLayer() {
+    for (Module module in moduleList) {
+      module.registerDataSources();
+    }
   }
 
-  /// Inits all repos
-  void initRepositories() {
-    getIt.initErrorRepos();
-    getIt.initAuthRepos();
+  /// Loops through the [moduleList] and registers domain layer classes
+
+  void initDomainLayer() {
+    for (Module module in moduleList) {
+      module.registerRepositories();
+      module.registerUsecases();
+    }
   }
 
-  /// Inits usescases
-  void initUsecases() {
-    getIt.initAuthUsecases();
-    getIt.initHomeUsecases();
-  }
+  /// Loops through the [moduleList] and registers presentation layer classes
 
-  /// Inits blocs
-  void initBlocs() {
-    getIt.initAuthBlocs();
-    getIt.initHomeBlocs();
-    getIt.initErrorBlocs();
+  void initPresentationLayer() {
+    for (Module module in moduleList) {
+      module.registerBlocs();
+    }
   }
 }

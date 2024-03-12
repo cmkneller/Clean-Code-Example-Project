@@ -1,33 +1,31 @@
 /// [File] home_module.dart
 ///
-/// This file holds an [HomeModule] extension on [GetIt],
+/// This file holds an [HomeModule] class,
 /// used to register classes in the auth module for dependancy injection.
 ///
 /// [Author] Chris Kneller
 /// [Date] March 5, 2024
 
+import 'package:clean_code_example_project/src/core/utility/module.dart';
+
 import '../../config/locator.dart';
 import 'domain/usecases/load_user_usecase.dart';
 import 'presentation/bloc/home_bloc.dart';
-import 'package:get_it/get_it.dart';
 
-extension HomeModule on GetIt {
-  /// Inits API
-  void initHomeApis() {}
+class HomeModule implements Module {
+  @override
+  void registerBlocs() {
+    getIt.registerLazySingleton(() => HomeBloc());
+  }
 
-  /// Inits Data source
-  void initHomeDataSources() {}
+  @override
+  void registerDataSources() {}
 
-  /// Inits Repos
-  void initHomeRepos() {}
-
-  /// Inits Usecases
-  void initHomeUsecases() {
+  @override
+  void registerRepositories() {
     getIt.registerLazySingleton(() => LoadUserUsecase());
   }
 
-  /// Inits Blocs
-  void initHomeBlocs() {
-    getIt.registerLazySingleton(() => HomeBloc());
-  }
+  @override
+  void registerUsecases() {}
 }

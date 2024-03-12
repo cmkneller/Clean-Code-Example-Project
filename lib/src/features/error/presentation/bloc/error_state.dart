@@ -3,7 +3,6 @@
 /// This file holds an [ErrorState] used in the error bloc
 ///
 /// [Author] Chris Kneller
-/// [support] chris@swiftpitch.app
 /// [Date] November 19, 2023
 library;
 
